@@ -1,0 +1,53 @@
+#newpaste p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin-left: 15px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+#editor {
+    position: relative;
+    width: 70%;
+    height: 50%;
+    border-width:1px;
+    border-color: #4682b4;
+    border-style:solid;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.syntax-highlight {
+    color:#1e1e1e;
+    margin-left:15px;
+}
+
+#syntax-highlight-selector {
+    margin-top: 15px;
+    width: 10%;
+    height: 30px;
+    font-family: "segoe ui","trebuchet MS","Lucida Sans Unicode","Lucida Sans",Sans-Serif;
+    font-size: 16px;
+    text-indent: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#submitbutton {
+    margin-top: 15px;
+    margin-left: 15px;
+    background-color: #D3D3D3;
+    border: none;
+    border-radius: 4px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+#submitbutton:hover {
+    background-color: #4682b4;
+}

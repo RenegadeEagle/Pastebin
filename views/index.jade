@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title Pastebin
+    link(rel='stylesheet', href='resources/navbar.css')
+    link(rel='stylesheet', href='resources/main.css')
+  body
+    ul.navbar
+      li#logo
+        a(href='#Logo')
+          i
+      li#maintext
+        a(href='#home') PASTEBIN
+      li
+        a.active(href='#home') Home
+      li
+        a(href='#about') About
+    #newpaste
+      p New Paste:
+    #editor
+    .syntax-highlight
+      p(style='display:inline-block;margin-right:10px; font-size:125%;')  Syntax Highlighting: 
+      select#syntax-highlight-selector
+        option(value='None') None
+        option(value='C') C
+        option(value='Java') Java
+        option(value='JavaScript') JavaScript
+    button#submitbutton Create New Paste
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+  script(src='resources/ace-builds/src-noconflict/ace.js', type='text/javascript', charset='utf-8')
+  script(src='resources/main.js')
+  script.
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/sqlserver");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setOptions({
+      maxLines: Infinity,
+      minLines: 25
+    });
+    editor.resize();
