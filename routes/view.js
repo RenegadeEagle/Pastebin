@@ -19,6 +19,7 @@ router.get('/:pasteid', function(req, res) {
     });
 });
 router.get('/:pasteid/raw', function(req, res) {
+    res.type('text/plain');
     var collection = global.mongo.collection('pastes');
     var pasteid = req.params.pasteid;
     collection.findOne({pasteid:pasteid}, function (err, doc) {
