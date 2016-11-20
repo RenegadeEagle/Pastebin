@@ -21,6 +21,9 @@ function buttonListener() {
         var editor = ace.edit("editor");
         
         var text = editor.getValue();
+        if(text == "") {
+            return;
+        }
         var syntax = document.getElementById("syntax-highlight-selector").value;
         
         post({
