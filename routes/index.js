@@ -9,6 +9,12 @@ router.get('/', function(req, res) {
 
 
 router.post('/', function(req, res) {
+  if(req.body.clonepaste != null) {
+    var clonepaste = req.body.clonepaste;
+    console.log(paste);
+    res.render('index', {clonepaste : clonepaste});
+    return;
+  }
   var paste = req.body.paste;
   var timestamp = Math.round(+new Date()/1000);
   var ip = req.ip;
