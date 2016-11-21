@@ -14,7 +14,7 @@
 
 
 .optionbutton {
-    background-color: #4682b4;
+    background-color: #00bfff;
     border: none;
     border-radius: 10px;
     padding: 15px 20px;
@@ -39,8 +39,9 @@ p {
     width: 70%;
     height: 50%;
     border-width:1px;
-    border-color: #4682b4;
+    border-color: #00bfff;
     border-style:solid;
     margin-left: 15px;
     margin-top: 15px;
+    cursor: none;
 }

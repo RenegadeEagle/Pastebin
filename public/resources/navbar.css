@@ -16,7 +16,7 @@ html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #4682b4;
+    background-color: #00bfff;
     height: 53px;
 }
 
@@ -71,5 +71,5 @@ html {
     background-color: grey;
 }
 .active {
-    background-color: #4169E1;
+    background-color: #1e90ff;
 }

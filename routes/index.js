@@ -9,42 +9,60 @@ router.get('/', function(req, res) {
 
 
 router.post('/', function(req, res) {
-  if(req.body.clonepaste != null) {
+  if (req.body.clonepaste != null) {
     var clonepaste = req.body.clonepaste;
     console.log(paste);
-    res.render('index', {clonepaste : clonepaste});
+    res.render('index', {
+      clonepaste: clonepaste
+    });
     return;
   }
-  var paste = req.body.paste;
-  var timestamp = Math.round(+new Date()/1000);
-  var ip = req.ip;
-  var syntax = req.body.syntax;
+  createPasteID(req, res);
   
-  var lines = returnThreeLines();
-  var pasteid = lines.line1 + lines.line2 + lines.line3;
-  pasteid = pasteid.replace(/(\r\n|\n|\r)/gm,"");
-  
-  var collection = global.mongo.collection('pastes');
-  collection.insert({
-    pasteid: pasteid, 
-    ip : ip, 
-    time : timestamp,
-    syntax: syntax,
-    paste : paste
-  });
-  
-  res.redirect('/' + pasteid);
 });
 
 
-function returnThreeLines(){
+function returnThreeLines() {
   var data = fs.readFileSync('./converted.txt', 'utf-8');
   var lines = data.split('\n');
   return {
-    line1: lines[Math.floor(Math.random()*lines.length)],
-    line2: lines[Math.floor(Math.random()*lines.length)],
-    line3: lines[Math.floor(Math.random()*lines.length)]
+    line1: lines[Math.floor(Math.random() * lines.length)],
+    line2: lines[Math.floor(Math.random() * lines.length)],
+    line3: lines[Math.floor(Math.random() * lines.length)]
   }
+}
+
+function createPasteID(req, res) {
+    var lines = returnThreeLines();
+    var pasteid = lines.line1 + lines.line2 + lines.line3;
+    pasteid = pasteid.replace(/(\r\n|\n|\r)/gm, "");
+    var collection = global.mongo.collection('pastes');
+    collection.findOne({pasteid: pasteid}, function(err, doc) {
+      if (doc == null) {
+        insertPaste(pasteid, req, res);
+        return;
+      } else {
+        createPasteID(req, res);
+      }
+    });
+}
+
+function insertPaste(pasteid, req, res) {
+  var paste = req.body.paste;
+  var timestamp = Math.round(+new Date() / 1000);
+  var ip = req.ip;
+  var syntax = req.body.syntax;
+  
+  var collection = global.mongo.collection('pastes');
+  collection.insert({
+    pasteid: pasteid,
+    ip: ip,
+    time: timestamp,
+    syntax: syntax,
+    paste: paste
+  });
+  
+  res.redirect('/' + pasteid);
 }
 
 module.exports = router;
