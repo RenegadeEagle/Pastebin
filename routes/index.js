@@ -11,7 +11,6 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
   if (req.body.clonepaste != null) {
     var clonepaste = req.body.clonepaste;
-    console.log(paste);
     res.render('index', {
       clonepaste: clonepaste
     });
