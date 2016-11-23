@@ -3,4 +3,3 @@ TODO:
 
 1) About page
 2) Syntax Highlighting
-3) Verifying integrity of paste ids

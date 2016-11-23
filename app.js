@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -37,7 +36,7 @@ app.use(function(req, res) {
 });
 
 app.use(function(err, req, res, next) {
-  console.log("Eror Logged\n" + err);
+  console.log("Error Logged\n" + err);
 });
 
 
