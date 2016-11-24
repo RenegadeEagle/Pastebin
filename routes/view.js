@@ -5,7 +5,7 @@ router.get('/:pasteid', function(req, res) {
     var collection = global.mongo.collection('pastes');
     var pasteid = req.params.pasteid;
     
-    console.log("Attempt past access of " + pasteid + " from " + req.ip);
+    console.log("Attempt paste access of " + pasteid + " from " + req.ip);
     
     collection.findOne({pasteid:pasteid}, function (err, doc) {
         if(doc != null) {

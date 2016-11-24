@@ -1,0 +1,53 @@
+html {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+h1 {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.about {
+    margin-left: 35px;   
+    margin-right: 35px;
+    margin-bottom: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.request {
+    color: rgb(39, 174, 96)
+}
+
+.about-border {
+    margin: 100px;
+    margin-top: 25px;
+    margin-bottom: 75px;
+    border: 2px solid #d3d3d3;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-weight: normal;
+}
+.tableheader tr, .tableheader th {
+    font-weight: bold;
+}
+
+h1 {
+    color: #191919;
+}
+h3 {
+    color: #191919;
+}
+h2 {
+    color: #191919;
+}

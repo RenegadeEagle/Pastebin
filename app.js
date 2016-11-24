@@ -29,7 +29,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
+app.use('/', require('./routes/about'))
 app.use('/', require('./routes/view'))
+
 
 app.use(function(req, res) {
   res.sendStatus(404);

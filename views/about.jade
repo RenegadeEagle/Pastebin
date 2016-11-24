@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    title About
+    link(rel='stylesheet', href='resources/navbar.css')
+    link(rel='stylesheet', href='resources/about.css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+  body
+    ul.navbar
+      li#logo
+        a(href='/')
+          i
+      li#maintext
+        a(href='/') PASTEBIN
+      li
+        a(href='/') Home
+      li
+        a.active(href='/about') About
+    .about-border
+      .about
+        h1 About Paste.RenegadeEagle.Co
+        p
+          | paste.renegadeeagle.co is a simple node application implemented to allow users to quickly paste and send any type of text data to anyone. Pastes do not expire, and are not deleted, so feel free to host whatever you want here. This application is built on top of 
+          a(href='https://nodejs.org/en/') NodeJS
+          |  using the 
+          a(href='http://expressjs.com/') Express 
+          |  framework. Data is stored in 
+          a(href='https://www.mongodb.com/') MongoDB
+          | , and HTML is rendered through 
+          a(href='https://www.mongodb.com/') Jade.
+          |  You can find the source to this application on my 
+          a(href='https://github.com/RenegadeEagle') github.
+        h1 API Calls
+        p
+          | If you want to incorperate paste.renegadeeagle.co into your own application (I have no idea why you would want too), two API calls are provided to upload and download data using GET and POST HTTP requests.
+        h2 Uploading Data
+        p.request POST /
+        p Upload data via a POST request with the following document body.
+        table
+          tr.tableheader
+            th Key Name
+            th Data Type
+            th Info
+            th Required
+            th Example
+          tr
+            th paste
+            th String
+            th Text you want to send to the site
+            th true
+            th My awesome paste!
+          tr
+            th syntax
+            th String
+            th Syntax highlighting for the site to render.
+            th false
+            th Java
+        p A list of valid syntax highlighting can be found here
+        h3 Response
+        p
+          | The link to the paste will be returned in the format of http://paste.renegadeeagle.co/SomePaste
+        h2 Retrieving Data
+        p.request GET /:pasteid/raw
+        p Retrieve Data via a GET request.
+        table
+          tr.tableheader
+            th Key Name
+            th Data Type
+            th Info
+            th Required
+            th Example
+          tr
+            th /:pasteid/
+            th String
+            th The PasteID to read from
+            th true
+            th GET http://renegadeeagle.co/MyPastePath
+        h3 Response
+        p The raw data from the paste. 

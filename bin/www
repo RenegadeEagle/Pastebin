@@ -4,7 +4,9 @@ var app = require('../app');
 var debug = require('debug')('paste:server');
 var http = require('http');
 
-var port = 80;
+
+//Port I will be running, multiple express applications will be on this machiine.
+var port = 25566;
 app.set('port', port);
 
 var server = http.createServer(app);
@@ -22,7 +24,6 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
