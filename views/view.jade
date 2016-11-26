@@ -28,11 +28,35 @@ html
   script(src='resources/ace-builds/src-noconflict/ace.js', type='text/javascript', charset='utf-8')
   script(src='resources/view.js', type='text/javascript', charset='utf-8')
   script.
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/sqlserver");
-    editor.setOptions({
-        maxLines: Infinity,
-        minLines: 25
-    });
-    editor.setReadOnly(true);
-    editor.setShowPrintMargin(false);
+    switch ("#{syntax}") {
+        case "none":
+            editor.session.setMode("ace/mode/plain");
+            break;
+        case "c":
+            editor.session.setMode("ace/mode/c_cpp");
+            break;
+        case "cpp":
+            editor.session.setMode("ace/mode/c_cpp");
+            break;
+        case "csharp":
+            editor.session.setMode("ace/mode/csharp");
+            break;
+        case "golang":
+            editor.session.setMode("ace/mode/golang");
+            break;
+        case "java":
+            editor.session.setMode("ace/mode/java");
+            break;
+        case "lau":
+            editor.session.setMode("ace/mode/lua");
+            break;
+        case "mysql":
+            editor.session.setMode("ace/mode/sql");
+            break;
+        case "php":
+            editor.session.setMode("ace/mode/php");
+            break;
+        case "python":
+            editor.session.setMode("ace/mode/python");
+            break;
+    }

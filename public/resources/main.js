@@ -50,16 +50,15 @@ function buttonListener() {
 function syntaxListener() {
     $("#syntax-highlight-selector").change(function () {
         var changeto = $(this).val();
-        alert(changeto);
         switch (changeto) {
             case "none":
                 editor.session.setMode("ace/mode/plain");
                 break;
             case "c":
-                editor.session.setMode("ace/mode/cpp");
+                editor.session.setMode("ace/mode/c_cpp");
                 break;
             case "cpp":
-                editor.session.setMode("ace/mode/cpp");
+                editor.session.setMode("ace/mode/c_cpp");
                 break;
             case "csharp":
                 editor.session.setMode("ace/mode/csharp");
