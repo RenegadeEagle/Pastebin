@@ -1,4 +1,0 @@
-//This serves as a file so I don't forget what I have left to do.
-TODO:
-
-1) Syntax Highlighting
