@@ -26,7 +26,7 @@ function randWord() {
 }
 
 function createPasteID(req, res) {
-    var lines = returnThreeLines();
+    var lines = randWord() + randWord() + randWord();
     var pasteid = randWord() + randWord() + randWord();
     pasteid = pasteid.replace(/(\r\n|\n|\r)/gm, "");
     var collection = global.mongo.collection('pastes');

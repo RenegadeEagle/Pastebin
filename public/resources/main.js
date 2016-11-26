@@ -1,3 +1,5 @@
+var editor = ace.edit("editor");
+
 function post(params) {
     var form = document.createElement("form");
     form.setAttribute("method", "post");
@@ -16,6 +18,19 @@ function post(params) {
     document.body.appendChild(form);
     form.submit();
 }
+
+function setupEditor(){
+    editor.setTheme("ace/theme/sqlserver");
+    editor.session.setMode("ace/mode/plain");
+    editor.setOptions({
+        maxLines: Infinity,
+        minLines: 25
+    });
+    editor.resize();
+    editor.setShowPrintMargin(false);
+    editor.session.setUseWorker(false)
+}
+
 function buttonListener() {
     $("#submitbutton").click(function (){
         var editor = ace.edit("editor");
@@ -32,4 +47,44 @@ function buttonListener() {
         })
     });
 }
+function syntaxListener() {
+    $("#syntax-highlight-selector").change(function () {
+        var changeto = $(this).val();
+        alert(changeto);
+        switch (changeto) {
+            case "none":
+                editor.session.setMode("ace/mode/plain");
+                break;
+            case "c":
+                editor.session.setMode("ace/mode/cpp");
+                break;
+            case "cpp":
+                editor.session.setMode("ace/mode/cpp");
+                break;
+            case "csharp":
+                editor.session.setMode("ace/mode/csharp");
+                break;
+            case "golang":
+                editor.session.setMode("ace/mode/golang");
+                break;
+            case "java":
+                editor.session.setMode("ace/mode/java");
+                break;
+            case "lau":
+                editor.session.setMode("ace/mode/lua");
+                break;
+            case "mysql":
+                editor.session.setMode("ace/mode/sql");
+                break;
+            case "php":
+                editor.session.setMode("ace/mode/php");
+                break;
+            case "python":
+                editor.session.setMode("ace/mode/python");
+                break;    
+        }
+    });;
+}
+setupEditor();
+syntaxListener();
 buttonListener();
